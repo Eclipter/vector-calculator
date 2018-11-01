@@ -35,12 +35,12 @@ public class VectorCalculationService {
         return Math.sqrt(vector.getValues().stream().mapToInt(v -> v * v).sum());
     }
 
-    public Vector dotProduct(Vector vector1, Vector vector2) {
+    public Integer dotProduct(Vector vector1, Vector vector2) {
         checkVectorLengths(vector1, vector2);
-        return new Vector()
-                .withValues(IntStream.range(0, vector1.getValues().size())
-                        .mapToObj(index -> vector1.getValues().get(index) * vector2.getValues().get(index))
-                        .collect(Collectors.toList()));
+        return IntStream.range(0, vector1.getValues().size())
+                .mapToObj(index -> vector1.getValues().get(index) * vector2.getValues().get(index))
+                .mapToInt(element -> element)
+                .sum();
     }
 
     private void checkVectorLengths(Vector vector1, Vector vector2) {
