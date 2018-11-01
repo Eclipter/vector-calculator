@@ -28,7 +28,7 @@ public class VectorCalculatorController {
     }
 
     @PostMapping("/dot-product")
-    public Vector dotProduct(@RequestBody VectorCalculationRequest vectorPair) {
+    public Integer dotProduct(@RequestBody VectorCalculationRequest vectorPair) {
         return vectorCalculationService.dotProduct(vectorPair.getVectorA(), vectorPair.getVectorB());
     }
 
