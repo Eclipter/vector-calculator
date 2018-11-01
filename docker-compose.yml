@@ -1,0 +1,32 @@
+version: '2.1'
+services:
+
+  vector-calculator-1:
+    image: dektiav/vector-calculator-impl
+    restart: always
+    ports:
+      - 8081:8080
+
+  vector-calculator-2:
+    image: dektiav/vector-calculator-impl
+    restart: always
+    ports:
+    - 8082:8080
+
+  vector-calculator-3:
+    image: dektiav/vector-calculator-impl
+    restart: always
+    ports:
+    - 8083:8080
+
+  registry:
+    image: dektiav/vector-calculator-registry
+    restart: always
+    ports:
+      - 8761:8761
+
+  gateway:
+    image: dektiav/vector-calculator-gateway
+    restart: always
+    ports:
+    - 4000:4000
